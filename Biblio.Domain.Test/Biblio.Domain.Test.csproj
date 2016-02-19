@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{121A3BE1-D0A9-4922-B727-DC4E647DCEB3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Biblio.Domain.Test</RootNamespace>
+    <AssemblyName>Biblio.Domain.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonDomain">
+      <HintPath>..\..\..\Sviluppo\SuiteSolution\CommonDomain\CommonDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonDomain.Core">
+      <HintPath>..\..\..\Sviluppo\SuiteSolution\CommonDomain\CommonDomain.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonDomain.Persistence">
+      <HintPath>..\..\..\Sviluppo\SuiteSolution\CommonDomain\CommonDomain.Persistence.dll</HintPath>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.3.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\packages\CompareNETObjects.3.03.0.0\lib\net451\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Book\CreateBookTest.cs" />
+    <Compile Include="EventSpecification.cs" />
+    <Compile Include="InMemoryEventRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biblio.Domain\Biblio.Domain.csproj">
+      <Project>{93b6e7dd-9eb0-42d4-8c10-87f5310eefb6}</Project>
+      <Name>Biblio.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblio.EventStore.Persistence\Biblio.EventStore.Persistence.csproj">
+      <Project>{7155a2b8-9ab9-47e3-a178-e31027094df5}</Project>
+      <Name>Biblio.EventStore.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblio.Infrastructures\Biblio.Infrastructures.csproj">
+      <Project>{e66814a1-f722-46eb-bc39-3624df436a0a}</Project>
+      <Name>Biblio.Infrastructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblio.Messages.Commands\Biblio.Messages.Commands.csproj">
+      <Project>{670010fa-7eff-4bb9-b8c9-2c3b238b3a16}</Project>
+      <Name>Biblio.Messages.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblio.Messages.Events\Biblio.Messages.Events.csproj">
+      <Project>{dbd77f32-997b-4a1f-8b55-f1fe043345c8}</Project>
+      <Name>Biblio.Messages.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblio.Shared\Biblio.Shared.csproj">
+      <Project>{8d975922-e942-4fa0-a9db-67ca0b5d5b32}</Project>
+      <Name>Biblio.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
